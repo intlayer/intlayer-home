@@ -16,18 +16,29 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+.box_L::before{
+  content: ' ';
+  position: relative;
+  color: white;
+  top: 100%;
+  left: -60px; 
+  width: 220px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.line:nth-of-type(3) {
+  display: none;
 }
