@@ -37,5 +37,5 @@ jobs:
       - name: Deploy Gh-Pages 🚀
         uses: peaceiris/actions-gh-pages@v4
         with:
-          publish_dir: ./out
+          publish_dir: ./public
           cname: intlayer.io
