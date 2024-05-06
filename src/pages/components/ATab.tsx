@@ -58,7 +58,7 @@ const ATab = () => {
         <div className="border-[#0072C6] border  rounded-[10px] py-[30px] px-[30px]  mt-6">
           <div className="flex justify-between">
             <img src="./color.svg" className=" mb-5"></img>
-            <img src="./arrowToB.svg" />
+            <img src="./arrowtoB.svg" />
           </div>
           <div
             style={{
