@@ -51,3 +51,7 @@
   display: inline-block;
   transform: rotate(-225deg)
 }
+
+.bg{
+  background-image: url('/public/banner.png');
+}
