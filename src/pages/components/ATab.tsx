@@ -7,7 +7,7 @@ const ATab = () => {
   ];
   return (
     <div
-      className=" mt-[100px]"
+      className=" pt-[90px] pb-[100px]"
       style={{
         background:
           "linear-gradient(103.62deg, #F7F7F7 0%, #F9FCFF 45.72%, #FBFBFB 98.31%)",
@@ -36,7 +36,7 @@ const ATab = () => {
               font: "Quicksand",
             }}
           >
-            Pre-sink DI Results
+           Precompile DI Schema
           </div>
           <div
             className="text-[#2E2E2E] w-[264px] h-[58px] rounded-[10px] flex items-center justify-center font-medium text-xl leading-5"
@@ -44,7 +44,7 @@ const ATab = () => {
               font: "Quicksand",
             }}
           >
-            Pre-sink DI Results
+           Rust DSL
           </div>
           <div
             className="text-[#2E2E2E] w-[264px] h-[58px] rounded-[10px] flex items-center justify-center font-medium text-xl leading-5"
@@ -52,7 +52,7 @@ const ATab = () => {
               font: "Quicksand",
             }}
           >
-            Pre-sink DI Results
+           ZKML Integration
           </div>
         </div>
         <div className="border-[#0072C6] border  rounded-[10px] py-[30px] px-[30px]  mt-6">

@@ -52,7 +52,7 @@ const ADesign = () => {
       </div>
       <div
         style={{ boxShadow: "0px 10px 34px 0px #8BBEE433" }}
-        className=" mt-[50px] w-full"
+        className=" mt-[50px] w-full mb-[100px] h-[380px]"
       >
         <div className="ml-[50px] pb-5">
           <img src="./circle.svg" className=" pt-[50px] " />
