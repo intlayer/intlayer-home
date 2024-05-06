@@ -1,6 +1,7 @@
 const ABanner = () => {
   return (
-    <div className=" mt-40 w-container m-auto md:w-full md:px-[40px] ">
+    <div className=" bg-[url('/banner.svg')] bg-cover bg-no-repeat ">
+    <div className=" mt-40 w-container m-auto md:w-full md:px-[40px]">
       <div className=" flex flex-col text-7xl  font-normal leading-[72px]">
         <div
           style={{ font: "Tenor Sans" }}
@@ -31,6 +32,7 @@ const ABanner = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
