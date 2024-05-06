@@ -50,7 +50,7 @@ const ADesign = () => {
                 <div className=" mt-5 font-medium text-base leading-8">
                   {item.content}
                 </div>
-                <div className=" py-10 md:my-0">
+                <div className={` py-10 md:my-0 ${index === 1 && 'flex justify-end'} `}>
                   <img src={item.img}/>
                 </div>
               </div>

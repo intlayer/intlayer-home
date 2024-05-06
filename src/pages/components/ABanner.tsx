@@ -1,6 +1,6 @@
 const ABanner = () => {
   return (
-    <div className=" bg-[url('/banner.svg')] bg-cover bg-no-repeat ">
+    <div className=" bg-[url('/banner.png')] bg-fuchsia-50">
     <div className=" mt-40 w-container m-auto md:w-full md:px-[40px]">
       <div className=" flex flex-col text-7xl  font-normal leading-[72px]">
         <div

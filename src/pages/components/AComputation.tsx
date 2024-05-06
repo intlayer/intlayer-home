@@ -30,7 +30,8 @@ const AComputation = () => {
             >
               Smart Contracts
             </div>
-            <div className="flex  m-auto border h-[199px] w-[1px] border-[#2E2E2E]"></div>
+            <div className="flex  m-auto border h-[199px] w-[1px] border-[#2E2E2E] "></div>
+            <div className="arrowToB"></div>
             <div className=" font-semibold text-2xl leading-6 w-[166px] mt-[30px]">
               EVM execution
             </div>

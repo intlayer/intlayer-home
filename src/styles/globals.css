@@ -42,3 +42,12 @@
 .line:nth-of-type(3) {
   display: none;
 }
+
+
+.arrowToB {
+  left: 0px;
+  top: 0px;
+  background-color: black;
+  display: inline-block;
+  transform: rotate(-225deg)
+}
