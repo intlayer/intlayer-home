@@ -35,7 +35,7 @@ jobs:
         run: pnpm build
 
       - name: Deploy Gh-Pages 🚀
-        uses: peaceiris/actions-gh-pages@v2
+        uses: peaceiris/actions-gh-pages@v4
         with:
           publish_dir: ./out
           cname: intlayer.io
