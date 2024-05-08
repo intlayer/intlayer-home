@@ -1,25 +1,92 @@
-import { WheelEventHandler, useRef, useState } from "react";
-import Slider from "react-slick";
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { useEffect, } from "react";
+import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import ScrollToPlugin from 'gsap/ScrollToPlugin'
 
 const ADesign = () => {
-  let sliderRef = useRef<any>(null)
-  const [current, setCurrent] = useState(0)
-  const settings = {
-    className: "",
-    dots: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    arrows: false,
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
-    cssEase: "linear",
-    speed: 1000,
-    infinite: true,
-  };
+
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+
+    let allowScroll = true
+    let scrollTimeout = gsap.delayedCall(1, () => (allowScroll = true)).pause()
+    let currentIndex = 0
+    let swipePanels = gsap.utils.toArray('.swipe-section .panel')
+    gsap.set(swipePanels, { zIndex: (i) => swipePanels.length - i })
+    let intentObserver = ScrollTrigger.observe({
+      type: 'wheel,touch',
+      onUp: () => allowScroll && gotoPanel(currentIndex - 1, false),
+      onDown: () => allowScroll && gotoPanel(currentIndex + 1, true),
+      tolerance: 10,
+      preventDefault: true,
+
+      onEnable(self: any) {
+        allowScroll = false
+        scrollTimeout.restart(true)
+        let savedScroll = self.scrollY()
+        self._restoreScroll = () => self.scrollY(savedScroll)
+        document.addEventListener('scroll', self._restoreScroll, { passive: false })
+      },
+      onDisable: (self: any) => document.removeEventListener('scroll', self._restoreScroll),
+    })
+
+    intentObserver.disable()
+
+    function gotoPanel(index: number, isScrollingDown: boolean) {
+      if ((index === swipePanels.length && isScrollingDown) || (index === -1 && !isScrollingDown)) {
+        intentObserver.disable() // resume native scroll
+        return
+      }
+      allowScroll = false
+      scrollTimeout.restart(true)
+
+      let target: any = isScrollingDown ? swipePanels[currentIndex] : swipePanels[index]
+
+      gsap.to(target, {
+        yPercent: isScrollingDown ? -100 : 0,
+        duration: 0.75,
+      })
+
+      currentIndex = index
+    }
+
+    ScrollTrigger.create({
+      trigger: '.swipe-section',
+      pin: false,
+      start: 'top top',
+      end: '+=10',
+      onEnter: (self) => {
+        if (intentObserver.isEnabled) {
+          return
+        }
+        self.scroll(self.start + 1)
+        intentObserver.enable()
+      },
+      onEnterBack: (self) => {
+        if (intentObserver.isEnabled) {
+          return
+        }
+        self.scroll(self.end - 1)
+        intentObserver.enable()
+      },
+    })
+
+    let horizontalSections = gsap.utils.toArray('.horizontal .panel')
+    gsap.to(horizontalSections, {
+      xPercent: -100 * (horizontalSections.length - 1),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.horizontal',
+        pin: true,
+        scrub: 1,
+        end: '+=3500',
+        markers: true,
+      },
+    })
+  }, [])
+
+
   const data = [
     {
       img: './gpt.svg',
@@ -38,52 +105,14 @@ const ADesign = () => {
     }
   ]
 
-  const handleWheel: WheelEventHandler<HTMLDivElement> = (event) => {
-    const deltaY = event.deltaY;
-
-    if (deltaY > 0) {
-      if (current + 1 === data.length) {
-        event.preventDefault();
-        document.body.style.overflow = "auto";
-
-        return;
-      }
-      (sliderRef as any).slickNext();
-    } else if (deltaY < 0) {
-      if (current === 0) {
-        event.preventDefault();
-        document.body.style.overflow = "auto";
-
-        return;
-      }
-      (sliderRef as any).slickPrev();
-    }
-
-    event.stopPropagation();
-  };
-
-  const handleAfterChange = (index: number) => {
-    setCurrent(index);
-  };
 
   return (
-    <div className=" mt-[120px]">
-      <div
-        id="myBar"
-        onWheel={handleWheel}
-        data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom"
-        className={`mt-10 scrollable-content`}
-      >
-        <Slider
-          {...settings}
-          ref={(slider: any) => {
-            sliderRef = slider;
-          }}
-          afterChange={handleAfterChange}>
-          {data.map((item, index) => {
-            return (
-              <div key={`slider${index}`} className='!flex h-[900px] bg-[#D9D9D9]'>
+    <div className='swipe-section '>
+      <section id={`panels`}>
+        {data.map((item, index) => {
+          return (
+            <article key={`slider${index}`} id={`panel-${index}`} className={`panel w-full tab${index}`}>
+              <div className='flex h-[900px] bg-[#D9D9D9]'>
                 <div className="flex justify-center items-center w-[50%]">
                   <img src={item.img} />
 
@@ -95,10 +124,10 @@ const ADesign = () => {
 
                 </div>
               </div>
-            )
-          })}
-        </Slider>
-      </div>
+            </article>
+          )
+        })}
+      </section>
     </div>
 
   );

@@ -58,3 +58,26 @@
 
 input::-webkit-input-placeholder{
 }
+
+.gsap-marker-start,
+.gsap-marker-scroller-end,
+.gsap-marker-start,
+.gsap-marker-scroller-start,
+.gsap-marker-end
+{
+  visibility: hidden;
+
+}  
+
+.swipe-section {
+  position: relative;
+  height:900px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 133px;
+}
+
+.swipe-section .panel {
+  position: absolute;
+
+}
