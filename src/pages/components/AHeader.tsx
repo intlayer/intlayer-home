@@ -5,7 +5,9 @@ const AHeader = () => {
         <div className="flex justify-between ">
           <img src="./IntLayer.svg" />
 
+<button onClick={()=>window.open('https://twitter.com/Int_Layer','_blank')}>
           <img src="./x.svg" />
+          </button>
         </div>
       </div>
     </div>

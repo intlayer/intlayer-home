@@ -1,4 +1,8 @@
 const ABanner = () => {
+
+  const onOpenTo = (url:string) =>{
+    window.open(url,'_blank')
+  }
   return (
     
     <div className="  bg-[url(/frame1.png)] bg-cover bg-repeat object-cover h-[400px] bg-center  ">
@@ -18,7 +22,9 @@ const ABanner = () => {
           The Data Intelligence Layer of World Computer
         </div>
         <div className=" flex justify-center text-xl font-medium leading-[20px] mt-[101px] gap-[65px]">
-          <div
+          <button
+          onClick={()=>onOpenTo('https://drive.google.com/file/d/1E5jBHLbOMzETLRBG_rd_R-Lr_QCQw0uo/view')}
+
             style={{ fontFamily: "Quicksand" }}
             className="border-[#D2ECFF] w-auto border px-[52px] h-[48px] rounded-[10px] flex bg-white   items-center  justify-between "
           >
@@ -26,15 +32,16 @@ const ABanner = () => {
               borderImageSource: 'linear-gradient(90deg, #D2ECFF 0%, #0072C6 100%)'
             }} className=" ml-[24px] ">Solution Deck</span>
          
-          </div>
-          <div
+          </button>
+          <button
+          onClick={()=>onOpenTo('https://flink.intlayer.io/#/overview')}
               style={{
                 background: "linear-gradient(90deg, #7DC8FF 0%, #0072C6 100%)",
               }}
               className="  h-12 flex items-center text-white rounded-[10px] px-[43px]"
             >
               Try Dashboard
-            </div>
+            </button>
         </div>
       </div>
       </div>

@@ -1,23 +1,23 @@
 const AComputation = () => {
   const list = [
     {
-      firstContent:'LIVE',
+      firstContent: 'LIVE',
       content:
         " data streaming, parallel run at hyperscale",
-      img:'./live.svg'
-      },
-    {
-      firstContent:'ZERO-TRUST',
-      content:
-        ", enabling smart contract use cases",
-      img:'./pi.svg'
-        
+      img: './live.svg'
     },
     {
-      firstContent:'AI',
+      firstContent: 'ZERO-TRUST',
+      content:
+        ", enabling smart contract use cases",
+      img: './pi.svg'
+
+    },
+    {
+      firstContent: 'AI',
       content:
         " “Program-of-Thoughts”, precise and private",
-      img:'./gpt.svg'
+      img: './gpt.svg'
 
     },
   ];
@@ -26,14 +26,14 @@ const AComputation = () => {
       style={{ fontFamily: "Tenor Sans" }}
       className=" mt-[222px] font-normal text-5xl leading-[48px] w-container m-auto justify-center md:w-full md:px-10"
     >
-      <div className=" justify-center flex text-5xl leading-[48px]">beyond Analytics, We deliver Data <label className="text-[#0172C6] ml-2">Intelligence.</label></div>
+      <div className=" justify-center flex text-5xl md:text-4xl leading-[48px]">beyond Analytics, We deliver Data <label className="text-[#0172C6] ml-2">Intelligence.</label></div>
       <div
         style={{
           fontFamily: "Quicksand",
         }}
         className="w-full flex justify-between gap-[30px] mt-[140px]"
       >
-      {list.map((item, index) => {
+        {list.map((item, index) => {
           return (
             <div
               key={`list_${index}`}
@@ -42,18 +42,18 @@ const AComputation = () => {
             >
               <div className="">
                 <div className=" mt-[97px] mb-[72px] font-bold text-2xl leading-6 flex justify-center ">
-                <img src={item.img}/>
+                  <img src={item.img} />
                 </div>
                 <div className=" mt-5 font-medium text-base leading-8 mb-[105px]">
                   <span className=" font-bold text-4xl leading-[42px] text-[#0172C6]"> {item.firstContent}</span>
                   <span className=" font-medium text-4xl leading-[42px]"> {item.content}</span>
                 </div>
-               
+
               </div>
             </div>
           );
         })}
-        </div>
+      </div>
     </div>
   );
 };

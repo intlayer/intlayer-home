@@ -22,19 +22,19 @@ const ADesign = () => {
   };
   const data = [
     {
-    img:'./gpt.svg',
-    title:'How AI',
-    content:<div className="text-4xl font-bold leading-[42px]">Based on <span className="font-medium text-[#0172C6]">LLM PoT (Program of Thoughts)</span> prompt engineering, IntLayer translates human instructions into precise and auditable data streaming tasks.</div>,
+      img: './gpt.svg',
+      title: 'How AI',
+      content: <div className="text-4xl md:text-2xl font-bold leading-[42px]">Based on <span className="font-medium text-[#0172C6]">LLM PoT (Program of Thoughts)</span> prompt engineering, IntLayer translates human instructions into precise and auditable data streaming tasks.</div>,
     },
     {
-    img:'./live.svg',
-    title:'How Data Streaming',
-    content:<div className="text-4xl font-bold leading-[42px]">IntLayer compiles data streaming tasks into <span className=" font-medium text-[#0172C6]">parallel computation “pure functions”</span> with no side-effect, for real-time processing at massive scale.</div>,
+      img: './live.svg',
+      title: 'How Data Streaming',
+      content: <div className="text-4xl  md:text-2xl font-bold leading-[42px]">IntLayer compiles data streaming tasks into <span className=" font-medium text-[#0172C6]">parallel computation “pure functions”</span> with no side-effect, for real-time processing at massive scale.</div>,
     },
     {
-    img:'./pi.svg',
-    title:'How Zero-Trust',
-    content:<div className="text-4xl font-bold leading-[42px]">IntLayer executes tasks in <span className=" font-medium text-[#0172C6]">ZeroKnowledge-VMs</span> , generates verifiable on-chain proofs, yet preserves source privacy. The functions can be directly accessed by smart contracts.</div>
+      img: './pi.svg',
+      title: 'How Zero-Trust',
+      content: <div className="text-4xl md:text-2xl font-bold leading-[42px]">IntLayer executes tasks in <span className=" font-medium text-[#0172C6]">ZeroKnowledge-VMs</span> , generates verifiable on-chain proofs, yet preserves source privacy. The functions can be directly accessed by smart contracts.</div>
     }
   ]
 
@@ -85,20 +85,20 @@ const ADesign = () => {
             return (
               <div key={`slider${index}`} className='!flex h-[900px] bg-[#D9D9D9]'>
                 <div className="flex justify-center items-center w-[50%]">
-                  <img src={item.img}/>
-                  
-                </div>
-                <div  style={{fontFamily:'Tenor Sans'}} className='bg-[#D9D9D9] border-l-[5px] border-black w-[50%] flex items-center  flex-col'>
-                  <div className=" mt-[253px] font-normal text-5xl leading-[48px]">{item.title}</div>
-                 <div className=" mt-[146px] px-[50px]"> {item.content}</div>
+                  <img src={item.img} />
 
-                 
+                </div>
+                <div style={{ fontFamily: 'Tenor Sans' }} className='bg-[#D9D9D9] border-l-[5px] border-black w-[50%] flex items-center  flex-col'>
+                  <div className=" mt-[253px] font-normal text-5xl md:text-4xl leading-[48px]">{item.title}</div>
+                  <div className=" mt-[146px] px-[50px]"> {item.content}</div>
+
+
                 </div>
               </div>
             )
           })}
         </Slider>
-    </div>
+      </div>
     </div>
 
   );
