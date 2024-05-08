@@ -1,90 +1,106 @@
-const ADesign = () => {
-  const list = [
-    {
-      title: "Extended Layer for EVM.",
-      content:
-        "IntLayer outsources only resource-intensive executions (Data Intelligence) from EVM， making it much more flexible and better fit into existing ethereum L1/L2s ecosystem.",
-      img:'./intLayer1.svg'
-      },
-    {
-      title: "Data Stream Parallel Run.",
-      content:
-        "IntLayer scales Data Intelligence tasks with IntFlink, a stream process framework and engine for parallel computation over bounded and unbounded data streams. ",
-      img:'./intLayer2.svg'
-        
-    },
-    {
-      title: "Data Source Beyond EVM.",
-      content:
-        "IntLayer pushed EVM to new boundries by not only addressing computation resource limitation but also enabling EVM to access non-execution data from blobs, consensus layers and oracles.",
-      img:'./intLayer3.svg'
+import { WheelEventHandler, useRef, useState } from "react";
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
+const ADesign = () => {
+  let sliderRef = useRef<any>(null)
+  const [current, setCurrent] = useState(0)
+  const settings = {
+    className: "",
+    dots: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    arrows: false,
+    vertical: true,
+    verticalSwiping: true,
+    swipeToSlide: true,
+    cssEase: "linear",
+    speed: 1000,
+    infinite: true,
+  };
+  const data = [
+    {
+    img:'./gpt.svg',
+    title:'How AI',
+    content:<div className="text-4xl font-bold leading-[42px]">Based on <span className="font-medium text-[#0172C6]">LLM PoT (Program of Thoughts)</span> prompt engineering, IntLayer translates human instructions into precise and auditable data streaming tasks.</div>,
     },
-  ];
+    {
+    img:'./live.svg',
+    title:'How Data Streaming',
+    content:<div className="text-4xl font-bold leading-[42px]">IntLayer compiles data streaming tasks into <span className=" font-medium text-[#0172C6]">parallel computation “pure functions”</span> with no side-effect, for real-time processing at massive scale.</div>,
+    },
+    {
+    img:'./pi.svg',
+    title:'How Zero-Trust',
+    content:<div className="text-4xl font-bold leading-[42px]">IntLayer executes tasks in <span className=" font-medium text-[#0172C6]">ZeroKnowledge-VMs</span> , generates verifiable on-chain proofs, yet preserves source privacy. The functions can be directly accessed by smart contracts.</div>
+    }
+  ]
+
+  const handleWheel: WheelEventHandler<HTMLDivElement> = (event) => {
+    const deltaY = event.deltaY;
+
+    if (deltaY > 0) {
+      if (current + 1 === data.length) {
+        event.preventDefault();
+        document.body.style.overflow = "auto";
+
+        return;
+      }
+      (sliderRef as any).slickNext();
+    } else if (deltaY < 0) {
+      if (current === 0) {
+        event.preventDefault();
+        document.body.style.overflow = "auto";
+
+        return;
+      }
+      (sliderRef as any).slickPrev();
+    }
+
+    event.stopPropagation();
+  };
+
+  const handleAfterChange = (index: number) => {
+    setCurrent(index);
+  };
+
   return (
-    <div className=" w-container m-auto justify-center md:w-full md:px-10 mt-[120px]">
+    <div className=" mt-[120px]">
       <div
-        style={{ font: "Tenor Sans" }}
-        className=" font-normal flex justify-center text-5xl  mb-[80px]"
+        id="myBar"
+        onWheel={handleWheel}
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        className={`mt-10 scrollable-content`}
       >
-        Design Philosophy.
-      </div>
-      <div
-        style={{
-          font: "Quicksand",
-        }}
-        className="w-full flex justify-between gap-[31px]"
-      >
-        {list.map((item, index) => {
-          return (
-            <div
-              key={`list_${index}`}
-              style={{ boxShadow: "0px 10px 34px 0px #8BBEE433" }}
-              className=" py-[30px] px-[30px] h-[650px] md:h-[720px]"
-            >
-              <div>
-                <img src="./circle.svg" />
-                <div className=" mt-5 font-bold text-2xl leading-6">
-                  {item.title}
-                </div>
-                <div className=" mt-5 font-medium text-base leading-8">
-                  {item.content}
-                </div>
-                <div className={` py-10 md:my-0 ${index === 1 && 'flex justify-end'} `}>
+        <Slider
+          {...settings}
+          ref={(slider: any) => {
+            sliderRef = slider;
+          }}
+          afterChange={handleAfterChange}>
+          {data.map((item, index) => {
+            return (
+              <div key={`slider${index}`} className='!flex h-[900px] bg-[#D9D9D9]'>
+                <div className="flex justify-center items-center w-[50%]">
                   <img src={item.img}/>
+                  
+                </div>
+                <div  style={{fontFamily:'Tenor Sans'}} className='bg-[#D9D9D9] border-l-[5px] border-black w-[50%] flex items-center  flex-col'>
+                  <div className=" mt-[253px] font-normal text-5xl leading-[48px]">{item.title}</div>
+                 <div className=" mt-[146px] px-[50px]"> {item.content}</div>
+
+                 
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
-      <div
-        style={{ boxShadow: "0px 10px 34px 0px #8BBEE433" }}
-        className=" mt-[50px] w-full mb-[100px] h-[380px]"
-      >
-        <div className="flex">
-        <div className="ml-[50px] pb-5">
-          <img src="./circle.svg" className=" pt-[50px] " />
-          <div
-            style={{
-              font: "Quicksand",
-            }}
-            className=" font-bold text-2xl leading-[30px] my-5"
-          >
-            Don’t Trust, Just zkVerify
-          </div>
-          <div className="w-[346px] font-medium text-base leading-7">
-            Data Intelligence tasks are defined and executed in full EVM
-            primitives. Stream Processing is done perfectly zero-trust, ZK
-            verifiable on-chain.
-          </div>
-        </div>
-        <div className=" pt-10 mr-20 md:pt-20">
-          <img src="./zkVerify.svg"/>
-        </div>
-        </div>
-      </div>
+            )
+          })}
+        </Slider>
     </div>
+    </div>
+
   );
 };
 

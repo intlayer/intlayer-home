@@ -1,9 +1,8 @@
 const ATab = () => {
   const list = [
     { title: "Pre-sink DI Results" },
-    { title: "Precompile DI Schema" },
+    { title: "Developed Schema" },
     { title: "Rust DSL" },
-    { title: "ZKML Integration" },
   ];
   return (
     <div
@@ -15,10 +14,10 @@ const ATab = () => {
     >
       <div className="w-container m-auto justify-center md:w-full md:px-[40px] ">
         <div
-          style={{ font: "Tenor Sans" }}
+          style={{ fontFamily: "Tenor Sans" }}
           className="flex justify-center font-normal text-5xl leading-[42px] pt-[90px]"
         >
-          Use IntLayer.
+        Use IntLayer <span className="text-[#0172C6] ml-3"> Schema</span>, Anyway You Want It
         </div>
         <div className=" flex justify-between mt-[50px]">
           <div
@@ -36,7 +35,7 @@ const ATab = () => {
               font: "Quicksand",
             }}
           >
-           Precompile DI Schema
+          Developed Schema
           </div>
           <div
             className="text-[#2E2E2E] w-[264px] h-[58px] rounded-[10px] flex items-center justify-center font-medium text-xl leading-5"
@@ -46,19 +45,11 @@ const ATab = () => {
           >
            Rust DSL
           </div>
-          <div
-            className="text-[#2E2E2E] w-[264px] h-[58px] rounded-[10px] flex items-center justify-center font-medium text-xl leading-5"
-            style={{
-              font: "Quicksand",
-            }}
-          >
-           ZKML Integration
-          </div>
+         
         </div>
         <div className="border-[#0072C6] border  rounded-[10px] py-[30px] px-[30px]  mt-6">
           <div className="flex justify-between">
             <img src="./color.svg" className=" mb-5"></img>
-            <img src="./arrowtoB.svg" />
           </div>
           <div
             style={{

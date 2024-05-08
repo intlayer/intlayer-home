@@ -5,15 +5,7 @@ const AHeader = () => {
         <div className="flex justify-between ">
           <img src="./IntLayer.svg" />
 
-          <button
-            style={{
-              font: "Montserrat",
-              background: " linear-gradient(90deg, #7DC8FF 0%, #0072C6 100%)",
-            }}
-            className=" px-[22px] h-9 rounded-md"
-          >
-            Task Dashboard
-          </button>
+          <img src="./x.svg" />
         </div>
       </div>
     </div>

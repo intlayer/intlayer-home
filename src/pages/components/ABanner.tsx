@@ -5,33 +5,36 @@ const ABanner = () => {
     <div className=" mt-[164px] w-container m-auto md:w-full md:px-[40px]  ">
       <div className=" flex flex-col text-7xl  font-normal leading-[72px]" >
         <div
-          style={{ font: "Tenor Sans" }}
+          style={{ fontFamily: "Tenor Sans" }}
           className=" flex justify-center  w-full"
         >
           <div className=" text-[#0072C6]">Int</div>
           <div>Layer</div>
         </div>
         <div
-          style={{ font: "Quicksand" }}
+          style={{ fontFamily: "Quicksand" }}
           className=" font-medium text-[42px] mt-[50px] leading-[42px] md:text-[38px] flex justify-center"
         >
           The Data Intelligence Layer of World Computer
         </div>
-        <div className=" flex justify-center">
+        <div className=" flex justify-center text-xl font-medium leading-[20px] mt-[101px] gap-[65px]">
           <div
-            style={{ font: "Quicksand" }}
-            className="border-[#D2ECFF] w-[411px] border h-[54px] rounded-[10px] flex mt-[70px] text-xl font-medium leading-[20px]  items-center  justify-between "
+            style={{ fontFamily: "Quicksand" }}
+            className="border-[#D2ECFF] w-auto border px-[52px] h-[48px] rounded-[10px] flex bg-white   items-center  justify-between "
           >
-            <span className=" ml-[24px]">Task Dashboard!</span>
-            <div
+            <span style={{
+              borderImageSource: 'linear-gradient(90deg, #D2ECFF 0%, #0072C6 100%)'
+            }} className=" ml-[24px] ">Solution Deck</span>
+         
+          </div>
+          <div
               style={{
                 background: "linear-gradient(90deg, #7DC8FF 0%, #0072C6 100%)",
               }}
-              className=" mr-[3px] py-[3px] h-12 flex items-center text-white rounded-[10px] px-[50px]"
+              className="  h-12 flex items-center text-white rounded-[10px] px-[43px]"
             >
-              Try it now!
+              Try Dashboard
             </div>
-          </div>
         </div>
       </div>
       </div>

@@ -4,6 +4,7 @@ import AComputation from "./components/AComputation";
 import ADesign from "./components/ADesign";
 import ATab from "./components/ATab";
 import AFooter from "./components/AFooter";
+import AEditCode from "./components/AEditCode";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <ABanner />
       <AComputation />
       <ADesign />
+      <AEditCode />
       <ATab />
       <AFooter />
     </>

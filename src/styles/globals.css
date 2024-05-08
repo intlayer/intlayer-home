@@ -55,3 +55,6 @@
 .bg{
   background-image: url('/public/banner.png');
 }
+
+input::-webkit-input-placeholder{
+}
